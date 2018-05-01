@@ -1,0 +1,809 @@
+{
+  "items": [
+    {
+      "tags": [
+        "javascript",
+        "node.js",
+        "promise"
+      ],
+      "owner": {
+        "reputation": 363,
+        "user_id": 4385285,
+        "user_type": "registered",
+        "accept_rate": 53,
+        "profile_image": "https://www.gravatar.com/avatar/741d6733a25633702311032d7aad7831?s=128&d=identicon&r=PG&f=1",
+        "display_name": "Sona Shetty",
+        "link": "https://stackoverflow.com/users/4385285/sona-shetty"
+      },
+      "is_answered": false,
+      "view_count": 11,
+      "answer_count": 1,
+      "score": 0,
+      "last_activity_date": 1525189940,
+      "creation_date": 1525189529,
+      "question_id": 50119524,
+      "link": "https://stackoverflow.com/questions/50119524/nodejs-synchronous-for-loop",
+      "title": "Nodejs Synchronous for loop",
+      "body": "<p>Can some one help me to run the below loop in a synchronous manner?As the below code is getting executed asynchronously,value of arra is always retuning null.</p>\n\n<pre><code>var arra=[];\n            //Query doctors collection and get necessary details           \n            for (i = 0; i &lt;arr.length; i++) {\n                var docregistrationnumber = arr[i].docregistrationnumber\n                var registrationAuthority = arr[i].docregistrationauthority                \n                doctorData.getDoctorByRegNumber(docregistrationnumber,registrationAuthority,function(data){\n                    console.log(JSON.stringify(data))  \n                    arra.push(data)                \n                })\n            } \n            console.log(arra) \n</code></pre>\n"
+    },
+    {
+      "tags": [
+        "javascript",
+        "json",
+        "node.js",
+        "rethinkdb"
+      ],
+      "owner": {
+        "reputation": 391,
+        "user_id": 5255543,
+        "user_type": "registered",
+        "accept_rate": 59,
+        "profile_image": "https://www.gravatar.com/avatar/d633061767dde4eb709a66d8d962856a?s=128&d=identicon&r=PG&f=1",
+        "display_name": "P. Nick",
+        "link": "https://stackoverflow.com/users/5255543/p-nick"
+      },
+      "is_answered": true,
+      "view_count": 23,
+      "answer_count": 1,
+      "score": 2,
+      "last_activity_date": 1525188819,
+      "creation_date": 1525184695,
+      "last_edit_date": 1525188819,
+      "question_id": 50118254,
+      "link": "https://stackoverflow.com/questions/50118254/nodejs-how-to-pass-async-data-from-a-model-with-module-exports",
+      "title": "NodeJS - how to pass async data from a model with module.exports?",
+      "body": "<p>I'm trying to get data from a document in RethinkDB in NodeJS and pass the result into a variable I wish to use in a template file, but it is always <code>undefined</code> when I try to print the <code>data</code> variable like <code>#{data}</code> (I'm using pug/jade) because it's an asynch call (i think).</p>\n\n<pre><code>'use strict';\n\nvar r = require('rethinkdb');\n\nmodule.exports = function IndexModel() {\n    data: {\n        r.connect({host: '127.0.0.1', port: 28015}, function(err, conn) {\n            r.db('mydb').table('mytable').run(conn).then(function(cursor) {\n                cursor.toArray(function(err, result) {\n                    if (err) throw err;\n                    return JSON.stringify(result, null, 2);\n                });\n            });\n        });\n    }\n};\n</code></pre>\n\n<p>I figured it must be because nodejs want it to be an object, so I tried to parse it like <code>JSON.parse(JSON.stringify(result, null, 2))</code> but that throws the same error.</p>\n\n<p>When I do <code>console.log(JSON.stringify(result, null, 2))</code> it prints this <strong>after</strong> the error.</p>\n\n<pre><code>[\n  {\n    \"id\": \"307ad5e9-a0db-461b-a564-081d73f9b34f\",\n    \"title\": \"hello\"\n  }\n]\n</code></pre>\n\n<p>This is the exact error if its needed:</p>\n\n<pre><code>Cannot read property 'length' of undefined\n    at eval (eval at wrap (C:\\Users\\Me\\Project\\node_modules\\pug-runtime\\wrap.js:6:10), &lt;anonymous&gt;:248:32)\n    at eval (eval at wrap (C:\\Users\\Me\\Project\\node_modules\\pug-runtime\\wrap.js:6:10), &lt;anonymous&gt;:379:4)\n    at template (eval at wrap (C:\\Users\\Me\\Project\\node_modules\\pug-runtime\\wrap.js:6:10), &lt;anonymous&gt;:389:211)\n    at Object.exports.renderFile (C:\\Users\\Me\\Project\\node_modules\\pug\\lib\\index.js:427:38)\n    at Object.exports.renderFile (C:\\Users\\Me\\Project\\node_modules\\pug\\lib\\index.js:417:21)\n    at View.exports.__express [as engine] (C:\\Users\\Me\\Project\\node_modules\\pug\\lib\\index.js:464:11)\n    at C:\\Users\\Me\\Project\\node_modules\\engine-munger\\index.js:133:22\n    at C:\\Users\\Me\\Project\\node_modules\\engine-munger\\index.js:154:17\n    at C:\\Users\\Me\\Project\\node_modules\\engine-munger\\index.js:87:21\n    at C:\\Users\\Me\\Project\\node_modules\\engine-munger\\index.js:189:13\n    at FSReqWrap.oncomplete (fs.js:153:5)\n</code></pre>\n\n<p>Any idea how I can solve this everlasting problem? Thanks!</p>\n\n<p><strong>Edit:</strong></p>\n\n<p>It appears that I can not return anything from the <code>data</code> variable inside any rethinkdb connection or promise, it has to be outside of it to get detected.</p>\n"
+    },
+    {
+      "tags": [
+        "mysql",
+        "node.js",
+        "dbconnection"
+      ],
+      "owner": {
+        "reputation": 282,
+        "user_id": 3035199,
+        "user_type": "registered",
+        "profile_image": "https://www.gravatar.com/avatar/f162d2c6c946c67d3c8992f99dcbd573?s=128&d=identicon&r=PG&f=1",
+        "display_name": "jackieLin",
+        "link": "https://stackoverflow.com/users/3035199/jackielin"
+      },
+      "is_answered": true,
+      "view_count": 56578,
+      "accepted_answer_id": 20211143,
+      "answer_count": 5,
+      "score": 46,
+      "last_activity_date": 1525188768,
+      "creation_date": 1385449372,
+      "last_edit_date": 1385451720,
+      "question_id": 20210522,
+      "link": "https://stackoverflow.com/questions/20210522/nodejs-mysql-error-connection-lost-the-server-closed-the-connection",
+      "title": "nodejs mysql Error: Connection lost The server closed the connection",
+      "body": "<p>when I use node mysql, an error is appear between 12:00 to 2:00 that the TCP connection is shutdown by the server. This is the full message:</p>\n\n<pre><code>Error: Connection lost: The server closed the connection.\nat Protocol.end (/opt/node-v0.10.20-linux-x64/IM/node_modules/mysql/lib/protocol/Protocol.js:73:13)\nat Socket.onend (stream.js:79:10)\nat Socket.EventEmitter.emit (events.js:117:20)\nat _stream_readable.js:920:16\nat process._tickCallback (node.js:415:13)\n</code></pre>\n\n<p>There is the <a href=\"https://github.com/felixge/node-mysql#server-disconnects\" rel=\"noreferrer\">solution</a>. However, after I try by this way, the problem also appear. now I do not know how to do. Does anyone meet this problem?</p>\n\n<p>Here is the way I wrote follow the solution:</p>\n\n<pre><code>    var handleKFDisconnect = function() {\n    kfdb.on('error', function(err) {\n        if (!err.fatal) {\n            return;\n        }\n        if (err.code !== 'PROTOCOL_CONNECTION_LOST') {\n            console.log(\"PROTOCOL_CONNECTION_LOST\");\n            throw err;\n        }\n        log.error(\"The database is error:\" + err.stack);\n\n        kfdb = mysql.createConnection(kf_config);\n\n        console.log(\"kfid\");\n\n        console.log(kfdb);\n        handleKFDisconnect();\n    });\n   };\n   handleKFDisconnect();\n</code></pre>\n"
+    },
+    {
+      "tags": [
+        "node.js",
+        "mongodb",
+        "rest",
+        "express",
+        "mongoose"
+      ],
+      "owner": {
+        "reputation": 3,
+        "user_id": 9722446,
+        "user_type": "registered",
+        "profile_image": "https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg?sz=128",
+        "display_name": "Samuel John",
+        "link": "https://stackoverflow.com/users/9722446/samuel-john"
+      },
+      "is_answered": false,
+      "view_count": 5,
+      "answer_count": 0,
+      "score": 0,
+      "last_activity_date": 1525188597,
+      "creation_date": 1525188597,
+      "question_id": 50119266,
+      "link": "https://stackoverflow.com/questions/50119266/array-update-nodejs-mongodb",
+      "title": "Array Update Nodejs Mongodb",
+      "body": "<p>How do i set the value of resources id D1 to true using POST (query details user John33 and _id jsk1) in Node JS Mongodb.</p>\n\n<p>Here is the Mongodb Collection File:</p>\n\n<pre><code>    [\n    {\n    \"resources\": [\n        {\n            \"_id\": \"D1\",\n            \"in\": false\n        },\n        {\n            \"_id\": \"D2\",\n            \"in\": false\n        }\n    ],\n    \"_id\": \"jsk1\",\n    \"user\": \"John33\",\n    \"__v\": 0\n},\n{\n    \"resources\": [\n\n        {\n            \"_id\": \"D1\",\n            \"in\": false\n        },\n        {\n            \"_id\": \"D2\",\n            \"in\": false\n        }\n    ],\n    \"_id\": \"jsk2\",\n    \"user\": \"John33\",\n    \"__v\": 0\n }\n]\n</code></pre>\n\n<p>I tried the following code:</p>\n\n<pre><code>  api.post('/users/:user_id/jsk/:jskid/resource/:resourceid',(req,res) =&gt;{\n\n Resource.find({user:req.params.user}&amp;&amp;{_id:req.params.jskid},(err,result)=&gt; \n{\n   if(err){\n\n    res.send(err);\n   }\n\n   res.json(result);\n\n   });\n  });\n</code></pre>\n\n<p>When i send api/users/John33/jsk/jsk1/resource/D1\nThe Output Result is as follow(i.e.i am able to find the correct resource,but i am not able to update the value of in):</p>\n\n<pre><code>[\n{\n    \"resources\": [\n        {\n            \"_id\": \"D1\",\n            \"in\": false\n        },\n        {\n            \"_id\": \"D2\",\n            \"in\": false\n        }\n    ],\n    \"_id\": \"jsk1\",\n    \"user\": \"John33\",\n    \"__v\": 0\n}\n ]\n</code></pre>\n\n<p>But how do i set the value of in to true of Resource id D1.Please help me out</p>\n\n<p>I tried the following as well but the value of in remains false.\napi/users/John33/jsk/jsk1/resource/D1 with body as {\"in\":true}</p>\n\n<pre><code> api.post('/users/:user_id/jsk/:jskid/resource/:resourceid',(req,res) =&gt;{\n\n Resource.update({user:req.params.user}&amp;&amp;{_id:req.params.jskid}, \n {\"resources._id\":req.params.resourceid},  { $set: { \"resources.$.in\": \n   req.body.in } },(err,result)=&gt;{\n     if(err){\n\n     res.send(err);\n     }\n\n    res.json(result);\n\n     });\n   });\n</code></pre>\n\n<p>When using Resource.update({user:req.params.user}&amp;&amp;{_id:req.params.jskid}&amp;&amp;\n     {\"resources._id\":req.params.resourceid}) Both the resources are found due to D1(resource id) hence i used the above method,still no luck in changing the value of in.</p>\n"
+    },
+    {
+      "tags": [
+        "javascript",
+        "node.js",
+        "server",
+        "utc",
+        "timezoneoffset"
+      ],
+      "owner": {
+        "reputation": 11,
+        "user_id": 7247278,
+        "user_type": "registered",
+        "profile_image": "https://www.gravatar.com/avatar/76c69307c9ecc7503dd00f473c8ad69c?s=128&d=identicon&r=PG&f=1",
+        "display_name": "Nik",
+        "link": "https://stackoverflow.com/users/7247278/nik"
+      },
+      "is_answered": false,
+      "view_count": 9,
+      "answer_count": 0,
+      "score": 0,
+      "last_activity_date": 1525187895,
+      "creation_date": 1525187770,
+      "last_edit_date": 1525187895,
+      "question_id": 50119052,
+      "link": "https://stackoverflow.com/questions/50119052/converting-server-time-to-any-given-local-time-in-nodejs",
+      "title": "Converting server time to any given local time in nodejs",
+      "body": "<p>This is the code im running in my server side nodejs for conversion.</p>\n\n<pre><code>convertNowToTimezone = (localOffset) =&gt; {\n  let d = new Date();\n  let millis = d.getTime() + (d.getTimezoneOffset() * 60000); //convert server local time to UTC millisec\n  d.setTime(millis - (localOffset * 60000)); //convert UTC millisec to required local time\n  return d;\n}\n</code></pre>\n\n<p>localOffset is -330 (IST offset), this gives a diff of 4min.</p>\n\n<p>How to get this thing right?</p>\n"
+    },
+    {
+      "tags": [
+        "c++",
+        "node.js",
+        "profiling"
+      ],
+      "owner": {
+        "reputation": 304,
+        "user_id": 1972599,
+        "user_type": "registered",
+        "accept_rate": 72,
+        "profile_image": "https://www.gravatar.com/avatar/d830d4bfcd0f6cf1a99373ac9ecd4596?s=128&d=identicon&r=PG",
+        "display_name": "matheuscscp",
+        "link": "https://stackoverflow.com/users/1972599/matheuscscp"
+      },
+      "is_answered": false,
+      "view_count": 11,
+      "answer_count": 0,
+      "score": 0,
+      "last_activity_date": 1525185400,
+      "creation_date": 1525141195,
+      "last_edit_date": 1525185400,
+      "question_id": 50110610,
+      "link": "https://stackoverflow.com/questions/50110610/how-to-make-cpu-profiling-for-a-nodejs-native-addon-written-in-c",
+      "title": "How to make CPU profiling for a NodeJS native addon written in C++?",
+      "body": "<p>I wrote a native addon in C++ for NodeJS and now I need to do some CPU profiling. I tried to use the <code>--prof</code> option, but it only shows profiling information about v8 code and nothing about my C++ code. My C++ code also runs in the libuv thread pool used by NodeJS and this is the most important part for which I need CPU profiling... How do I do that? Thanks in advance!</p>\n"
+    },
+    {
+      "tags": [
+        "node.js",
+        "lambda",
+        "graphql",
+        "aws-api-gateway",
+        "apollo-client"
+      ],
+      "owner": {
+        "reputation": 1296,
+        "user_id": 11612,
+        "user_type": "registered",
+        "accept_rate": 92,
+        "profile_image": "https://www.gravatar.com/avatar/a69614f7113cd911214b4386a270dbf5?s=128&d=identicon&r=PG",
+        "display_name": "Damien",
+        "link": "https://stackoverflow.com/users/11612/damien"
+      },
+      "is_answered": true,
+      "view_count": 11,
+      "answer_count": 2,
+      "score": 0,
+      "last_activity_date": 1525184611,
+      "creation_date": 1525178316,
+      "last_edit_date": 1525178665,
+      "question_id": 50116611,
+      "link": "https://stackoverflow.com/questions/50116611/reactjs-nodejs-issue-connecting-to-graphql-on-aws-lambda",
+      "title": "ReactJS - NodeJS - Issue Connecting to Graphql On AWS Lambda",
+      "body": "<p>I have a nodejs lambda function deployed on aws which exposes a lambda endpoint via API Gateway.\nThe endpoint is <a href=\"https://z8zch5bp3m.execute-api.us-east-1.amazonaws.com/test?query=%7B%0A%09addNumbers(number1%3A1%2C%20number2%3A55)%20%7B%0A%20%20%20%20add%0A%20%20%7D%0A%7D\" rel=\"nofollow noreferrer\">here</a> and allows you to access the graphiql endpoint.</p>\n\n<p>I have been trying to call this from my react code but I am getting the following error response</p>\n\n<pre><code>{\"message\":\"Missing Authentication Token\"}\n</code></pre>\n\n<p>And the following console warning</p>\n\n<pre><code>Failed to load https://z8zch5bp3m.execute-api.us-east-1.amazonaws.com/test: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource. Origin 'http://localhost:3000' is therefore not allowed access. The response had HTTP status code 403. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with CORS disabled.\n</code></pre>\n\n<p>I have enabled cors in the API gateway but still getting this error.</p>\n\n<p>My simple react code is as follows</p>\n\n<pre><code>import React, { Component } from 'react';\nimport { gql } from 'apollo-boost';\nimport { Query } from 'react-apollo';\n\nconst ADD_NUMBERS = gql`\n  query {\n      addNumbers(number1:1, number2:55) {\n        add\n      }    \n  }\n`\n\n\nconst App = () =&gt; (\n  &lt;Query query={ADD_NUMBERS}&gt;\n    {({ loading, error, data }) =&gt; {\n      if (loading) return &lt;div&gt;Loading...&lt;/div&gt;;\n      if (error) return &lt;div&gt;Error :(&lt;/div&gt;;\n\n      return (\n        &lt;div&gt;Data: {data}&lt;/div&gt;\n      )\n    }}\n  &lt;/Query&gt;\n)\n\nexport default App;\n</code></pre>\n\n<p>The nodejs code for my lambda function is located <a href=\"https://drive.google.com/file/d/1_Hry3waLffFu4PBVrqOb7GbZg0WMiS6d/view?usp=sharing\" rel=\"nofollow noreferrer\">here</a></p>\n\n<p>Please let me know if I need to do anything to get this lambda call working.</p>\n"
+    },
+    {
+      "tags": [
+        "node.js",
+        "ubuntu",
+        "permissions",
+        "fs"
+      ],
+      "owner": {
+        "reputation": 415,
+        "user_id": 820511,
+        "user_type": "registered",
+        "accept_rate": 69,
+        "profile_image": "https://www.gravatar.com/avatar/87db92e01c8674017a477b9960720fe4?s=128&d=identicon&r=PG",
+        "display_name": "glesage",
+        "link": "https://stackoverflow.com/users/820511/glesage"
+      },
+      "is_answered": true,
+      "view_count": 2345,
+      "answer_count": 3,
+      "score": 6,
+      "last_activity_date": 1525184136,
+      "creation_date": 1418780381,
+      "question_id": 27517046,
+      "link": "https://stackoverflow.com/questions/27517046/nodejs-fs-eacces-permission",
+      "title": "nodejs fs eacces permission",
+      "body": "<p>I've just run into a strange problem with fs reading a file.</p>\n\n<p>I have node application run from a deployment manager (strongloop strong-pm) as the following user \"strong-pm\".</p>\n\n<p>No matter what permissions I give to the file I'm trying to open throug the node app, I get </p>\n\n<pre><code>return binding.open(pathModule._makeLong(path), stringToFlags(flags), mode);\n\nworker:1 Error: EACCES, permission denied '/root/my_dir/file.txt'\n    at Object.fs.openSync (fs.js:432:18)\n    at Object.fs.readFileSync (fs.js:286:15)\n</code></pre>\n\n<p>I've tried everything:<br>\n<code>sudo chown -R strong-pm:strong-pm /root/my_dir</code><br>\n<code>sudo chmod -R 777 /root/my_dir</code><br>\n<code>sudo chmod 777 /root/my_dir/file.txt</code><br>\nadding the strong-pm to a group<br>\nthen adding that group to the directory...</p>\n\n<p>Still no luck.. any ideas?</p>\n\n<p>Thanks!</p>\n\n<hr>\n\n<p>System: Ubuntu 14.04 x64 on DigitalOcean</p>\n"
+    },
+    {
+      "tags": [
+        "node.js",
+        "mongodb",
+        "multer"
+      ],
+      "owner": {
+        "reputation": 1,
+        "user_id": 6108716,
+        "user_type": "registered",
+        "accept_rate": 0,
+        "profile_image": "https://graph.facebook.com/1567827760195023/picture?type=large",
+        "display_name": "Valentin Valentyn",
+        "link": "https://stackoverflow.com/users/6108716/valentin-valentyn"
+      },
+      "is_answered": false,
+      "view_count": 28,
+      "answer_count": 0,
+      "score": 0,
+      "last_activity_date": 1525180687,
+      "creation_date": 1525118824,
+      "last_edit_date": 1525180687,
+      "question_id": 50107490,
+      "link": "https://stackoverflow.com/questions/50107490/nodejs-save-multiple-files-in-mongodb",
+      "title": "NodeJs save multiple files in MongoDb",
+      "body": "<p>I have a problem, I want to save multiple files at once in a database(MongoDb), but it does not work. It's save that id and nothing else</p>\n\n<p><em>My JS code</em></p>\n\n<pre><code>var storage =   multer.diskStorage({\n    destination: function (req, file, callback) {\n       callback(null, './uploads/');\n    },\n    filename: function (req, file, callback) {\n       callback(null, file.originalname);\n    }\n});\n\nvar upload = multer({storage: storage, dest: './uploads/'}).array('userPhoto', 12);\n\napp.post('/addfile',upload,function(req,res){\n    var file = new File ();\n        file.fieldname= req.files.fieldname;\n        file.originalname= req.files.originalname;\n        file.encoding= req.files.encodin;\n        file.save(function(err, data){\n           if (err){console.log(err)}\n           else {\n              console.log(req.files);\n           }\n    });\n    res.end(\"File is uploaded\");\n});\n</code></pre>\n\n<p><em>My HTML code</em></p>\n\n<pre><code>&lt;form id=\"uploadForm\" enctype=\"multipart/form-data\" action=\"/addfile\" method=\"post\"&gt;\n   &lt;input type=\"file\" name=\"userPhoto\" multiple=\"\"/&gt;&lt;br/&gt;\n   &lt;input type=\"submit\" value=\"Upload Image\" name=\"submit\"/&gt;\n&lt;/form&gt;\n</code></pre>\n"
+    },
+    {
+      "tags": [
+        "node.js",
+        "socket.io"
+      ],
+      "owner": {
+        "reputation": 392,
+        "user_id": 5856544,
+        "user_type": "registered",
+        "accept_rate": 82,
+        "profile_image": "https://graph.facebook.com/10208069984581135/picture?type=large",
+        "display_name": "Achiel Volckaert",
+        "link": "https://stackoverflow.com/users/5856544/achiel-volckaert"
+      },
+      "is_answered": true,
+      "view_count": 45,
+      "accepted_answer_id": 49109616,
+      "answer_count": 3,
+      "score": 1,
+      "last_activity_date": 1525179603,
+      "creation_date": 1520244505,
+      "last_edit_date": 1520249361,
+      "question_id": 49107857,
+      "link": "https://stackoverflow.com/questions/49107857/socket-io-communication-between-nodejs-scripts",
+      "title": "socket.io communication between nodejs scripts",
+      "body": "<p>I'm trying to setup some socket.io communications, the communication between my server (app.js)(runs on a raspberry pi) and a website(public/index.html) works fine. Now I want to expand it so when my app.js receives a call from index.html it emits it further to another node.js script(bed.js) that will run on another raspberry pi. I tried to use the npm module socket.io-client, but this can only receive apparently</p>\n\n<p>!edit! problem has narrowed down to the setrgb part, there it won't emit.</p>\n\n<p>!edit 2! when i receive setRGB, i emit setRGBclient, but that can only be received in bed.js, not in index.html, there lays my problem, i need to share the connections or force it to another connection, no clue how i fix it though</p>\n\n<p>APP.JS:</p>\n\n<pre><code>let http = require('http').createServer(handler); //require http server, and create server with function handler()\nlet fs = require('fs'); //require filesystem module\nlet io = require('socket.io')(http) //require socket.io module and pass the http object (server)\nlet delay = require('delay');\nconsole.log('Define each color from RGB Strip light.');\nhttp.listen(8080); //listen to port 8080\n\n\nfunction handler (req, res) { //create server\n    fs.readFile(__dirname + '/public/index.html', function(err, data) { //read file index.html in public folder\n        if (err) {\n            res.writeHead(404, {'Content-Type': 'text/html'}); //display 404 on error\n            return res.end(\"404 Not Found\");\n        }\n        res.writeHead(200, {'Content-Type': 'text/html'}); //write HTML\n        res.write(data); //write data from index.html\n        return res.end();\n    });\n}\nio.sockets.on('connection', function (socket) {// WebSocket Connection\n\n    socket.on(\"test\", function(){\n        console.log(\"sampletext\");\n    });\n\n\n    socket.on(\"setRGB\", function(data){\n        socket.emit(\"setRGBClient\", data);\n        console.log(data);\n        console.log(\"test\");\n    });\n});\n</code></pre>\n\n<p>bed.js:</p>\n\n<pre><code>let socket = require('socket.io-client')('http://localhost:8080');\n\nlet lightstate = false;\nlet stayOff = false;\nlet fadeState = false;\nconsole.log(\"check\");\nsocket.emit(\"test\");\nsocket.on(\"setRGBClient\" ,function(data) {\n    console.log(data);\n});\n</code></pre>\n"
+    },
+    {
+      "tags": [
+        "node.js"
+      ],
+      "owner": {
+        "reputation": 421,
+        "user_id": 1268877,
+        "user_type": "registered",
+        "accept_rate": 57,
+        "profile_image": "https://i.stack.imgur.com/44gpV.png?s=128&g=1",
+        "display_name": "Eugeny Pavlenko",
+        "link": "https://stackoverflow.com/users/1268877/eugeny-pavlenko"
+      },
+      "is_answered": true,
+      "view_count": 98770,
+      "accepted_answer_id": 10815271,
+      "answer_count": 4,
+      "score": 63,
+      "last_activity_date": 1525178799,
+      "creation_date": 1338376652,
+      "question_id": 10815218,
+      "link": "https://stackoverflow.com/questions/10815218/where-is-nodejs-log-file",
+      "title": "Where is nodejs log file?",
+      "body": "<p>I can't find a place where nodejs log file is stored.\nBecause in my node server I have \"Segmentation fault\", I want to look at log file for additional info...</p>\n"
+    },
+    {
+      "tags": [
+        "sql",
+        "node.js",
+        "api"
+      ],
+      "owner": {
+        "reputation": 3,
+        "user_id": 9638167,
+        "user_type": "registered",
+        "profile_image": "https://www.gravatar.com/avatar/c7c025ed9a78bd11c9f063bf7ff2e63d?s=128&d=identicon&r=PG",
+        "display_name": "user9638167",
+        "link": "https://stackoverflow.com/users/9638167/user9638167"
+      },
+      "is_answered": false,
+      "view_count": 12,
+      "answer_count": 1,
+      "score": 0,
+      "last_activity_date": 1525178434,
+      "creation_date": 1525177696,
+      "question_id": 50116468,
+      "link": "https://stackoverflow.com/questions/50116468/how-do-i-will-make-my-nodejs-api-always-online-for-android-app",
+      "title": "How do i will make My NodeJs Api always online for android app",
+      "body": "<p>Hey My name is Sam and i am developing an app . i have SQL server database and have a nodejs API that read data through SQL server . now that API is Running on Localhost:3131/ which is what means that it will be just for you . \nI do have a windows Server that stays online always . i can use pm2 on that server with the API files to make things Alive but it will be limited to localhost again . So how could i make this on ip and then can access through anywhere around the globe. </p>\n\n<p>Can Any one Guide me through steps because i have seen more likly like 100 of posts and nothing is clicking in my mind . </p>\n"
+    },
+    {
+      "tags": [
+        "php",
+        "node.js",
+        "express",
+        "heroku",
+        "socket.io"
+      ],
+      "owner": {
+        "reputation": 5828,
+        "user_id": 206613,
+        "user_type": "registered",
+        "accept_rate": 97,
+        "profile_image": "https://www.gravatar.com/avatar/d4a9ed05ac91f093a07a098babc8d32d?s=128&d=identicon&r=PG",
+        "display_name": "vikmalhotra",
+        "link": "https://stackoverflow.com/users/206613/vikmalhotra"
+      },
+      "is_answered": false,
+      "view_count": 15,
+      "answer_count": 0,
+      "score": 0,
+      "last_activity_date": 1525168283,
+      "creation_date": 1525166488,
+      "last_edit_date": 1525168283,
+      "question_id": 50114077,
+      "link": "https://stackoverflow.com/questions/50114077/setting-up-socket-io-with-phpnodejs-buildpack-on-heroku",
+      "title": "Setting up socket.io with php+nodejs buildpack on Heroku",
+      "body": "<p>Since I am quite confused about my problem, I will try to make sense as much as I can.</p>\n\n<ul>\n<li>I am creating a webapp on heroku (free tier) that uses php(codeigniter) for backend and vuejs for frontend.</li>\n<li>I am using php buildpack for this.</li>\n<li>Now one of the features on the webapp requires realtime data update, so I decided to add socket.io + express to my app.</li>\n<li>All is working fine on local machine, but I am confused about how to deploy this on heroku.</li>\n</ul>\n\n<h2>Build process?</h2>\n\n<p>I was initially using php buildpack. Now I have added nodejs buildpack to run express server.</p>\n\n<p>Here is my procfile</p>\n\n<pre><code>web: vendor/bin/heroku-php-apache2 public/\n</code></pre>\n\n<p>Buildpacks</p>\n\n<pre><code>$ heroku buildpacks\n1. heroku/nodejs\n2. heroku/php\n</code></pre>\n\n<p><strong>My confusion is that where should I actually run the command to start express server? In composer.json? In package.json?</strong></p>\n\n<p>Here are my scripts in package.json.</p>\n\n<pre><code>  \"scripts\": {\n    \"dev\": \"cross-env NODE_ENV=development webpack --config config/config.dev.js\",\n    \"build\": \"cross-env NODE_ENV=production webpack --config config/config.prod.js\",\n    \"start\": \"node server.js\",\n    \"test\": \"echo \\\"Error: no test specified\\\" &amp;&amp; exit 1\",\n    \"postinstall\": \"gulp css_compile\"\n  },\n</code></pre>\n\n<p>server.js</p>\n\n<pre><code>const path    = require('path'),\n      express = require('express')\n\nconst app     = express(),\n      server  = require('http').Server(app),\n      io      = require('socket.io')(server)\n\nconst DEFAULT_PORT = 3000\nconst isProduction = process.env.NODE_ENV === 'production'\nconst port = isProduction ?process.env.PORT :DEFAULT_PORT\n\nconst publicPath = path.resolve(__dirname, 'public');\n\napp.use('/npm', express.static('node_modules'))\n\napp.use(express.static(publicPath))\n\nserver.listen(port, () =&gt; {\n  console.log('Server running on port....' + port)\n})\n\nio.on('connection', (socket) =&gt; {\n  socket.on('data-updated', () =&gt; {\n    io.emit('data-updated', {})\n  })\n\n  // do something when user disconnects\n  socket.on('disconnect', () =&gt; {})\n})\n</code></pre>\n\n<h2>Port/url for express server on heroku?</h2>\n\n<p>I have two ports open on local machine, one for php(8000) and one for express(3000). But since heroku sets its own port, what url and port should I listen to in my socket client code?</p>\n\n<p>Here is the part where I am listening for realtime updates.</p>\n\n<p>realtimebus.js</p>\n\n<pre><code>import Vue from 'vue'\nimport io from 'socket.io-client'\nimport { EventBus } from './eventbus.js'\n\nconst socket = io('http://localhost:3000')\n\nsocket.on('data-updated', () =&gt; {\n    RealtimeBus.$emit('data-updated')\n})\n\nexport const RealtimeBus = new Vue({\n  created() {\n    EventBus.$on('data-update-finished', (data) =&gt; {\n      socket.emit('data-updated')\n    })\n  }\n})\n</code></pre>\n"
+    },
+    {
+      "tags": [
+        "node.js",
+        "callback"
+      ],
+      "owner": {
+        "reputation": 472,
+        "user_id": 6101969,
+        "user_type": "registered",
+        "accept_rate": 76,
+        "profile_image": "https://www.gravatar.com/avatar/af337f9791a73a3a4590d809a0bbc49e?s=128&d=identicon&r=PG&f=1",
+        "display_name": "J.Done",
+        "link": "https://stackoverflow.com/users/6101969/j-done"
+      },
+      "is_answered": false,
+      "view_count": 16,
+      "answer_count": 1,
+      "score": 1,
+      "last_activity_date": 1525165321,
+      "creation_date": 1525162373,
+      "last_edit_date": 1525162728,
+      "question_id": 50113291,
+      "link": "https://stackoverflow.com/questions/50113291/nodejs-promises-in-loop",
+      "title": "nodejs promises in loop",
+      "body": "<pre><code>let token = null;\nlet allData = [];\nwhile( true) {\n  getData( token).then( function( data, nextToken){\n    token = nextToken;\n    allData.push( data);\n  });\n  if( token == null) break;\n}\nreturn allData;\n</code></pre>\n\n<p>As you know this code is not work as I excepted because while loop will continue before token value is set as nextToken value. Is there any way to get all data?</p>\n"
+    },
+    {
+      "tags": [
+        "node.js",
+        "sequelize.js"
+      ],
+      "owner": {
+        "reputation": 42,
+        "user_id": 6048806,
+        "user_type": "registered",
+        "accept_rate": 7,
+        "profile_image": "https://www.gravatar.com/avatar/db304bf8f1b924a9f1c606538d941b0b?s=128&d=identicon&r=PG&f=1",
+        "display_name": "mani",
+        "link": "https://stackoverflow.com/users/6048806/mani"
+      },
+      "is_answered": true,
+      "view_count": 21,
+      "accepted_answer_id": 50113792,
+      "answer_count": 1,
+      "score": 1,
+      "last_activity_date": 1525165100,
+      "creation_date": 1525159781,
+      "question_id": 50112841,
+      "link": "https://stackoverflow.com/questions/50112841/how-to-properly-handle-asynchronous-error-in-nodejs",
+      "title": "How to properly handle asynchronous error in nodejs",
+      "body": "<p>Below code explain two async code inside main async process . my problem was   \"userController.insertUser\" -- catched some error but that error not able to throw main catch</p>\n\n<pre><code>DataMiddleware.DataValidate(Object).then((middlewareSuccess) =&gt; {\n            switch (true) {\n              case ((tableName === \"users\") &amp;&amp; (method === \"CREATE\")):\n\n\n               userController.insertUser(Object).then(()=&gt; {\n                    ...\n                }).catch((err) =&gt; {\n                        return err\n                })\n\n                break;\n              case ((tableName === \"users\") &amp;&amp; (method === \"BATCH\")):\n\n               userController.updateUser(Object).then(()=&gt; {\n                    ...\n                }).catch((err) =&gt; {\n                        return err\n                })\n                break;\n\n            }\n\n            }).catch((err) =&gt; {\n                    console.log(\"main error\",err)\n            })\n</code></pre>\n\n<p>how to catch properly?</p>\n"
+    },
+    {
+      "tags": [
+        "node.js",
+        "mongodb"
+      ],
+      "owner": {
+        "reputation": 149,
+        "user_id": 9254817,
+        "user_type": "registered",
+        "profile_image": "https://i.stack.imgur.com/2NpRf.png?s=128&g=1",
+        "display_name": "Vipul Solanki",
+        "link": "https://stackoverflow.com/users/9254817/vipul-solanki"
+      },
+      "is_answered": false,
+      "view_count": 22,
+      "answer_count": 1,
+      "score": 0,
+      "last_activity_date": 1525160542,
+      "creation_date": 1525157882,
+      "question_id": 50112513,
+      "link": "https://stackoverflow.com/questions/50112513/nodejs-how-to-search-within-last-some-documents-in-mongo",
+      "title": "nodejs - how to search within last some documents in mongo",
+      "body": "<p><strong>Nodejs</strong></p>\n\n<pre><code>dbo.collection(\"abc\")\n    .find({\"name\": \"Felicity\"})\n    .sort({_id:-1})\n    .limit()\n    .exec(\n        function(err, results){\n\n            // my code\n\n        }\n    );\n</code></pre>\n\n<p><strong>Data in  Collection</strong></p>\n\n<pre><code>cansOne = [\n   {\n        \"_id\": ObjectId(\"5ace23558980...\"),\n        \"name\": \"Khalichi\",\n        \"gender\": \"F\",\n        \"type\":\"Admin\"\n    },\n    .\n    .\n    .\n\n    {\n        \"_id\": ObjectId(\"5ace23558980...\"),\n        \"name\": \"Thore\",\n        \"gender\": \"M\",\n        \"type\":\"\"\n    },\n    {\n        \"_id\": ObjectId(\"5ace23558980...\"),\n        \"name\": \"John Snow\",\n        \"gender\": \"M\",\n        \"type\":\"Admin\"\n    },\n    {\n        \"_id\": ObjectId(\"5ace23558980...\"),\n        \"name\": \"Felicity\",\n        \"gender\": \"F\",\n        \"type\":\"User\"\n    }\n]\n\ncansTwo = [\n   {\n        \"_id\": ObjectId(\"5ace23558980...\"),\n        \"name\": \"Khalichi\",\n        \"gender\": \"F\",\n        \"type\":\"Admin\"\n    },\n    .\n    .\n    .\n\n    {\n        \"_id\": ObjectId(\"5ace23558980...\"),\n        \"name\": \"Thore\",\n        \"gender\": \"M\",\n        \"type\":\"\"\n    },\n    {\n        \"_id\": ObjectId(\"5ace23558980...\"),\n        \"name\": \"John Snow\",\n        \"gender\": \"M\",\n        \"type\":\"Admin\"\n    },\n    {\n        \"_id\": ObjectId(\"5ace23558980...\"),\n        \"name\": \"Felicity\",\n        \"gender\": \"F\",\n        \"type\":\"User\"\n    }\n    {\n        \"_id\": ObjectId(\"5ace23558980...\"),\n        \"name\": \"Batman\",\n        \"gender\": \"M\",a\n        \"type\":\"\"\n    }\n]\n</code></pre>\n\n<p>I have this type of data in collection. there are two type of cases:</p>\n\n<p>1) <code>\"type\":\"\"</code> at the end of collection, means it is last document of collection.</p>\n\n<p>2) After <code>\"type\":\"\"</code> document, there are some documents in collection.</p>\n\n<p>I want to search one document, but if it is coming after last index of <code>\"type\":\"\"</code> document then it will return that doc otherwise it will return null. in short I want to search this record in those amount of data which are comes after last <code>\"type\":\"\"</code></p>\n\n<p>Can anyone help.</p>\n\n<p>Thanks in advance.</p>\n\n<p>For example I want to search <code>\"name\": \"Felicity\"</code>.</p>\n\n<p><strong>Expected output</strong></p>\n\n<pre><code>caseOne = [\n    {\n        \"_id\": ObjectId(\"5ace23558980...\"),\n        \"name\": \"Felicity\",\n        \"gender\": \"F\",\n        \"type\":\"User\"\n    }\n]\n\ncaseTwo = []\n</code></pre>\n"
+    },
+    {
+      "tags": [
+        "mysql",
+        "node.js",
+        "docker",
+        "koa"
+      ],
+      "owner": {
+        "reputation": 24,
+        "user_id": 5574420,
+        "user_type": "registered",
+        "accept_rate": 0,
+        "profile_image": "https://i.stack.imgur.com/SOkeQ.jpg?s=128&g=1",
+        "display_name": "K.King",
+        "link": "https://stackoverflow.com/users/5574420/k-king"
+      },
+      "is_answered": false,
+      "view_count": 28,
+      "answer_count": 1,
+      "score": 0,
+      "last_activity_date": 1525160294,
+      "creation_date": 1525100918,
+      "last_edit_date": 1525106742,
+      "question_id": 50103296,
+      "link": "https://stackoverflow.com/questions/50103296/docker-compose-nodejs-mysql-cant-connect-mysql",
+      "title": "docker-compose: nodejs + mysql can&#39;t connect mysql",
+      "body": "<p>I try to dockerlized my own node application, but can't connect the mysql container. my codes:  </p>\n\n<h3>docker-compose.yml</h3>\n\n<pre><code>  version: '3.2'\n  services:\n    node:\n      build: ./\n      ports:\n        - \"8787:8787\"\n      depends_on:\n        - db\n      networks:\n        - docker_xxx\n      environment:\n        - PORT=8787\n        - DATABASE_HOST=db\n        - DATABASE_PASSWORD=xxx\n        - EGG_SERVER_ENV=local\n        - NODE_ENV=development\n      # command: [\"./wait-for-it.sh\", \"db:3306\", \"--\", \"npm run docker\"]\n    db:\n      build: ./db\n      networks:\n        - docker_xxx\n      environment:\n        - MYSQL_ROOT_PASSWORD=xxx\n        - MYSQL_DATABASE=database\n        - MYSQL_USER=user\n        - MYSQL_PASSWORD=passwd\n\n  networks:\n    docker_xxx:\n      driver: bridge\n</code></pre>\n\n<h3>./Dockerfile (for nodejs)</h3>\n\n<pre><code>  FROM node:8.9.4-alpine\n\n  RUN mkdir -p /usr/src/app\n\n  WORKDIR /usr/src/app\n\n  COPY package.json /usr/src/app/\n\n  RUN npm install --production\n\n  COPY . /usr/src/app\n  # COPY wait-for-it.sh /usr/src/app\n\n  EXPOSE 8787\n\n  CMD npm run docker\n</code></pre>\n\n<h3>db/Dockerfile (for mysql)</h3>\n\n<pre><code>  FROM mysql:5.6\n\n  ADD honggang.sql /docker-entrypoint-initdb.d\n</code></pre>\n\n<h3>config/config.default.js</h3>\n\n<pre><code> config.mysql = {\n    // mysql settings\n    client: {\n      // host\n      host: process.env.DATABASE_HOST || '127.0.0.1',\n      // port\n      port: '3306',\n      // username\n      user: 'root',\n      // password\n      password: 'xxx',\n      database: 'xxx',\n      charset: 'utf8',\n      dialectOptions: {\n        collate: 'utf8_general_ci',\n      },\n    },\n    app: true,\n    agent: false,\n  };\n</code></pre>\n\n<p>I run <code>docker-compose up -d</code> , there's only <code>db</code> running.</p>\n\n<p>I run <code>docker logs hash</code> to find errors, it shows the following info:</p>\n\n<pre><code>        2018-04-30 14:43:51,334 ERROR 54 nodejs.ECONNREFUSEDError: connect ECONNREFUSED 172.19.0.2:3306\n            at Object._errnoException (util.js:1022:11)\n            at _exceptionWithHostPort (util.js:1044:20)\n            at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1182:14)\n            --------------------\n            at Protocol._enqueue (/usr/src/app/node_modules/mysql/lib/protocol/Protocol.js:145:48)\n            at Protocol.handshake (/usr/src/app/node_modules/mysql/lib/protocol/Protocol.js:52:23)\n            at PoolConnection.connect (/usr/src/app/node_modules/mysql/lib/Connection.js:130:18)\n            at Pool.getConnection (/usr/src/app/node_modules/mysql/lib/Pool.js:48:16)\n            at /usr/src/app/node_modules/ali-rds/node_modules/pify/index.js:29:7\n            at new Promise (&lt;anonymous&gt;)\n            at Pool.&lt;anonymous&gt; (/usr/src/app/node_modules/ali-rds/node_modules/pify/index.js:12:10)\n            at Pool.ret [as getConnection] (/usr/src/app/node_modules/ali-rds/node_modules/pify/index.js:56:34)\n            at Pool.query (/usr/src/app/node_modules/mysql/lib/Pool.js:202:8)\n            at /usr/src/app/node_modules/ali-rds/node_modules/pify/index.js:29:7\n            sql: select now() as currentTime;\n        code: 'ECONNREFUSED'\n        errno: 'ECONNREFUSED'\n        syscall: 'connect'\n        address: '172.19.0.2'\n        port: 3306\n        fatal: true\n        name: 'ECONNREFUSEDError'\n        pid: 54\n        hostname: d9cd95667a5d\n</code></pre>\n\n<p>I added <code>CMD ping db</code>, it responded.</p>\n\n<hr>\n\n<p>I tried to use <code>wait-for-it.sh</code> (the code just commented out), but got the error info: </p>\n\n<pre><code>env: can't execute 'bash': No such file or directory\n</code></pre>\n"
+    },
+    {
+      "tags": [
+        "node.js",
+        "unit-testing",
+        "sinon",
+        "stub",
+        "stubbing"
+      ],
+      "owner": {
+        "reputation": 917,
+        "user_id": 743898,
+        "user_type": "registered",
+        "accept_rate": 92,
+        "profile_image": "https://i.stack.imgur.com/tCeK9.jpg?s=128&g=1",
+        "display_name": "quartaela",
+        "link": "https://stackoverflow.com/users/743898/quartaela"
+      },
+      "is_answered": false,
+      "view_count": 13,
+      "answer_count": 1,
+      "score": 0,
+      "last_activity_date": 1525159995,
+      "creation_date": 1525149827,
+      "question_id": 50111441,
+      "link": "https://stackoverflow.com/questions/50111441/nodejs-sinon-how-to-stub-inline-require-object-from-a-class",
+      "title": "nodejs sinon how to stub inline require object from a class",
+      "body": "<p>I am trying to stub a class which does some stuff at inline require line. For example here lets say I am writing a unit test for abc-handler.js which depends on <code>query-helper</code> and <code>logger</code>. On the other hand, <code>query-helper</code> also depends on <code>logger</code>. However, I couldn't find a proper way to deal with stubbing logger and injecting it into related dependencies.</p>\n\n<p>Here is some sample classes I have. </p>\n\n<p><strong>query-helper.js</strong></p>\n\n<pre><code>var logger = require('./log/logger.js').getDefaultLogger();\n\nclass QueryHelper {\n  static save() {\n    // save stuff\n  }\n}\n</code></pre>\n\n<p><strong>abc-handler.js</strong></p>\n\n<pre><code>const logger = require('./log/logger.js').getDefaultLogger();\nconst QueryHelper = require('./query-helper.js');\nvar Handler = require('./handler.js');\n\n/**\n    Handler for 'binance' exchange\n*/\nclass ABCHandler extends Handler {\n    constructor(params) {\n        super(params);\n    }\n\n    doStuff() {}\n}\n</code></pre>\n\n<p><strong>logger.js</strong></p>\n\n<pre><code>var Log = require('log');\nvar fs = require('fs');\nvar dir = './logs';\nconst config = require('./config.js');\nclass LoggerFactory {\n    static getDefaultLogger() {\n        this._createDir();\n        if (this.logger === null || this.logger === undefined) {\n            this.logger = new Logger(\"application\");\n        }\n        return this.logger;\n    }\n\n    static _createDir() {\n        if (!fs.existsSync(dir)) {\n            fs.mkdirSync(dir);\n        }\n    }\n}\n\nclass Logger {\n    constructor(operationType) {\n        this.logger = new Log(\"debug\", fs.createWriteStream(\"logs/\" + operationType + \".log\"), {flags: \"a\"});\n    }\n}\n\nmodule.exports = LoggerFactory;\n</code></pre>\n\n<p>Here is the example block from unit-test. Here abcHandler creates <code>./log</code> directory which shouldn't happen because I am passing loggerStub</p>\n\n<pre><code>var sinon = require('sinon');\nvar proxyquire = require('proxyquire');\nvar Log = require('log');\n...\n\nlogger = proxyquire('./logger.js', {'./config.js': config});\nloggerStub = sinon.createStubInstance(Log);\n_createDirStub = sinon.stub(logger, \"getDefaultLogger\").returns(loggerStub);\n\nqueryHelper = proxyquire('./query-helper.js' , {'./logger.js': logger});\nqueryHelperGetLastDataStub = sinon.stub(queryHelper, \"save\");\n\nabcHandler = proxyquire('.abc-handler.js'\n                                    , {'./logger.js': logger,\n                                        './query-helper.js': queryHelper,\n                                        './config.js': config});\n</code></pre>\n\n<p>Thanks!</p>\n"
+    },
+    {
+      "tags": [
+        "php",
+        "node.js",
+        "url-redirection"
+      ],
+      "owner": {
+        "reputation": 464,
+        "user_id": 5819709,
+        "user_type": "registered",
+        "accept_rate": 45,
+        "profile_image": "https://www.gravatar.com/avatar/520d05e7e9cf0e3974016340f5fc11bc?s=128&d=identicon&r=PG&f=1",
+        "display_name": "Aman Gupta",
+        "link": "https://stackoverflow.com/users/5819709/aman-gupta"
+      },
+      "is_answered": false,
+      "view_count": 16,
+      "answer_count": 0,
+      "score": 0,
+      "last_activity_date": 1525159732,
+      "creation_date": 1525159732,
+      "question_id": 50112836,
+      "link": "https://stackoverflow.com/questions/50112836/nodejs-redirect-from-previous-website-php-to-new-website-built-in-mean-stack",
+      "title": "Nodejs Redirect from previous website (php) to new website built in MEAN stack",
+      "body": "<p>I have a website which is running built with PHP with URL \"www.example.com/index.php/content/category-name/slug-of-the-content\".</p>\n\n<p>Now I have created a new website which is built in MEAN stack. I want to redirect this particular URL to a new URL.\nI know how to redirect to a new URL, but what I am struggling with is to get the category name and the slug of the content.</p>\n\n<p>I tried</p>\n\n<pre><code>app.get('/index.php/content/:categoryName/:slugOfTheContent', function(req, res) {\n    console.log('redirect from here');\n})\n</code></pre>\n\n<p>But could not get the request here.\nLet me know if I have to add any more details.</p>\n"
+    },
+    {
+      "tags": [
+        "java",
+        "node.js",
+        "elasticsearch"
+      ],
+      "owner": {
+        "reputation": 49,
+        "user_id": 7770431,
+        "user_type": "registered",
+        "profile_image": "https://www.gravatar.com/avatar/aeee9dbac377be7c703101f842b04dd3?s=128&d=identicon&r=PG&f=1",
+        "display_name": "HOTAM SINGH",
+        "link": "https://stackoverflow.com/users/7770431/hotam-singh"
+      },
+      "is_answered": false,
+      "view_count": 16,
+      "closed_date": 1525159292,
+      "answer_count": 0,
+      "score": -2,
+      "last_activity_date": 1525156737,
+      "creation_date": 1525156737,
+      "question_id": 50112327,
+      "link": "https://stackoverflow.com/questions/50112327/what-should-i-use-nodejs-or-java-to-integrate-elasticsearch-with",
+      "closed_reason": "primarily opinion-based",
+      "title": "What should I use NodeJS or Java to integrate elasticsearch with?",
+      "body": "<p>I want to choose either Java or Nodejs with Elasticsearch. My requirement is only to query from Elasticsearch and display a big amount of data i.e 3 year's records. For CRUD operations I am using PostgreSQL and updates Elasticsearch every minute. </p>\n\n<p>Now I need to choose any of the two languages(NodeJS or Java) which is better in case of performance or other parameters? Please suggest.</p>\n\n<p>Thanks in advance. </p>\n"
+    },
+    {
+      "tags": [
+        "mysql",
+        "node.js",
+        "express",
+        "react-native",
+        "postman"
+      ],
+      "owner": {
+        "reputation": 1,
+        "user_id": 9271907,
+        "user_type": "registered",
+        "profile_image": "https://www.gravatar.com/avatar/874e3a60eb47942291d4b850a95a8779?s=128&d=identicon&r=PG&f=1",
+        "display_name": "Allaude Bluesky",
+        "link": "https://stackoverflow.com/users/9271907/allaude-bluesky"
+      },
+      "is_answered": false,
+      "view_count": 18,
+      "answer_count": 0,
+      "score": 0,
+      "last_activity_date": 1525146823,
+      "creation_date": 1525145049,
+      "last_edit_date": 1525146823,
+      "question_id": 50110973,
+      "link": "https://stackoverflow.com/questions/50110973/nodejs-express-mysql-could-not-get-any-response-in-the-backend",
+      "title": "nodejs + express + mysql Could not get any response in the backend",
+      "body": "<p>I'm trying to make a list of foods in react native using nodejs + express + mysql, I have to make a array of objects I think to achieve it. So I make this code and run it in postman. But there is an error saying Could not get any response in the back end.</p>\n\n<p>My code is based on this link: <a href=\"https://gist.github.com/rakawestu/d2b29bf3d0a64a44734cf47f5e34be57\" rel=\"nofollow noreferrer\">https://gist.github.com/rakawestu/d2b29bf3d0a64a44734cf47f5e34be57</a></p>\n\n<p>Here is my code</p>\n\n<pre><code>var express = require('express');\nvar router = express.Router();\nvar mysql = require('mysql');\n\nvar app     = express();\n\nfunction con() {\n  return mysql.createConnection({\n      host: 'localhost',\n      user: 'root',\n      password: '',\n      database: 'opob'\n  });\n}\n\nrouter.get('/', (request, response, next) =&gt; {\n  response.render('index', { title: 'My tutorial' });\n});\n\napp.get('/menu',function(req, res){\n    var menuList = [];\n    var connection = con();\n\n    connection.connect();\n\n    connection.query('SELECT * FROM menu', function(err, rows, fields) {\n        if(err) {\n            res.status(500).json({\"status_code\":500, \"status_message\":\"internal server error\"});\n        } else {\n            for (var i = 0; i &lt; rows.length; i++) {\n                var Menu = {\n                    'menu_id'    : rows[i].menu_id,\n                    'cat_id'     : rows[i].cat_id,\n                    'menu_desc'  : rows[i].menu_desc,\n                    'menu_price' : rows[i].menu_price,\n                    'menu_status': rows[i].menu_status,\n                }\n                menuList.push(Menu);\n            }\n        }\n    });\n    connection.end();\n})\n\nmodule.exports = router;\n</code></pre>\n"
+    },
+    {
+      "tags": [
+        "mysql",
+        "node.js",
+        "swift3"
+      ],
+      "owner": {
+        "reputation": 1,
+        "user_id": 9476603,
+        "user_type": "registered",
+        "profile_image": "https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg?sz=128",
+        "display_name": "W Allen",
+        "link": "https://stackoverflow.com/users/9476603/w-allen"
+      },
+      "is_answered": false,
+      "view_count": 19,
+      "answer_count": 0,
+      "score": -2,
+      "last_activity_date": 1525128435,
+      "creation_date": 1525127528,
+      "question_id": 50109086,
+      "link": "https://stackoverflow.com/questions/50109086/how-do-i-connect-swift-with-mysql-database-using-nodejs",
+      "title": "How do I connect Swift with MySQL database using nodejs",
+      "body": "<p>I've already had MySQL database set up and nodejs is running properly in terms of inserting values and get values.</p>\n"
+    },
+    {
+      "tags": [
+        "node.js",
+        "jwt",
+        "access-token"
+      ],
+      "owner": {
+        "reputation": 42,
+        "user_id": 4787178,
+        "user_type": "registered",
+        "profile_image": "https://www.gravatar.com/avatar/26272b52bdbdd3bd2b1c857fc59cfdaf?s=128&d=identicon&r=PG&f=1",
+        "display_name": "Kida",
+        "link": "https://stackoverflow.com/users/4787178/kida"
+      },
+      "is_answered": false,
+      "view_count": 16,
+      "answer_count": 0,
+      "score": -1,
+      "last_activity_date": 1525126717,
+      "creation_date": 1525126717,
+      "question_id": 50108976,
+      "link": "https://stackoverflow.com/questions/50108976/how-to-create-jwt-user-access-token-in-nodejs-without-username-password",
+      "title": "How to create JWT user/access token in nodejs without username/password?",
+      "body": "<p>I am new to nodejs and JWT.\nI want to create JWT user/access token in nodejs without user's username/password.\nOn button click, it should generate an user token and then redirect to next page. Also how to verify user token when page redirect occurs?</p>\n"
+    },
+    {
+      "tags": [
+        "javascript",
+        "promise"
+      ],
+      "owner": {
+        "reputation": 3,
+        "user_id": 3424387,
+        "user_type": "registered",
+        "profile_image": "https://www.gravatar.com/avatar/96d13149386135bdc995071b48422b54?s=128&d=identicon&r=PG&f=1",
+        "display_name": "user3424387",
+        "link": "https://stackoverflow.com/users/3424387/user3424387"
+      },
+      "is_answered": true,
+      "view_count": 19,
+      "accepted_answer_id": 50108741,
+      "answer_count": 1,
+      "score": -2,
+      "last_activity_date": 1525125257,
+      "creation_date": 1525124525,
+      "last_edit_date": 1525125192,
+      "question_id": 50108618,
+      "link": "https://stackoverflow.com/questions/50108618/how-to-assign-value-with-es2016-async-and-nodejs",
+      "title": "How to assign value with ES2016 async and nodejs",
+      "body": "<p>I am writing with node.js and express to build an API when a user enters a URL on their address bar they make an xmlhttpreq to another site and the value is sent. Now this part works fine but I want to use that same information for further programming. So the code has to wait for the result and assign it to a variable. So I am trying out await and async. Below is my code. </p>\n\n<pre><code>app.get('/super', function(req, res){\nres.send(console.log(config.options()));\n // config is imported this where the async code is\n});\n</code></pre>\n\n<p>Config.js</p>\n\n<pre><code>module.exports = {\n    options : async () =&gt;{\n                let super  = await getGas();\n                return super\n            },\n}\nvar getGas = async ()=&gt;{\nprovider = ether.providers.getDefaultProvider();\nprovider.getGasPrice().then(//provider.getGas is a promise\n    function(gasPrice) {\n        gasPriceString = gasPrice.toString();\n        return gasPriceString;\n    },\n    function(error){\n        var errorObj = JSON.parse(error.responseText);\n    }\n);\n}\n</code></pre>\n\n<p>What am I doing wrong?</p>\n"
+    },
+    {
+      "tags": [
+        "node.js",
+        "date",
+        "utc",
+        "gmt",
+        "localtime"
+      ],
+      "owner": {
+        "reputation": 649,
+        "user_id": 348696,
+        "user_type": "registered",
+        "accept_rate": 77,
+        "profile_image": "https://www.gravatar.com/avatar/c823607e0240c4bb306778eb1ec64b48?s=128&d=identicon&r=PG",
+        "display_name": "FireDragonMule",
+        "link": "https://stackoverflow.com/users/348696/firedragonmule"
+      },
+      "is_answered": false,
+      "view_count": 14,
+      "closed_date": 1525124402,
+      "answer_count": 0,
+      "score": 0,
+      "last_activity_date": 1525124169,
+      "creation_date": 1525123621,
+      "question_id": 50108449,
+      "link": "https://stackoverflow.com/questions/50108449/nodejs-create-new-date-with-no-timezone-in-local-timezone",
+      "closed_reason": "duplicate",
+      "title": "NodeJS create new Date with no timezone in local timezone",
+      "body": "<p>In NodeJS, this will create the time in GMT</p>\n\n<p><code>var date = new Date('2015-04-14T11:24:55');</code></p>\n\n<p>Is there a way to create the date in the local timezone if the timezone is not present in the string? </p>\n"
+    },
+    {
+      "tags": [
+        "javascript",
+        "node.js"
+      ],
+      "owner": {
+        "reputation": 59,
+        "user_id": 5457680,
+        "user_type": "registered",
+        "accept_rate": 60,
+        "profile_image": "https://www.gravatar.com/avatar/edadd20113f88393fba312edf09b3885?s=128&d=identicon&r=PG&f=1",
+        "display_name": "Seb",
+        "link": "https://stackoverflow.com/users/5457680/seb"
+      },
+      "is_answered": true,
+      "view_count": 39,
+      "accepted_answer_id": 50106514,
+      "answer_count": 1,
+      "score": 0,
+      "last_activity_date": 1525114348,
+      "creation_date": 1525113837,
+      "last_edit_date": 1525114191,
+      "question_id": 50106399,
+      "link": "https://stackoverflow.com/questions/50106399/cant-see-the-property-of-a-object-in-nodejs",
+      "title": "Can&#39;t see the property of a object in nodejs",
+      "body": "<p>I'm begining with nodejs.\nI have a object and I want to see a property of my object </p>\n\n<pre><code>console.log( typeof options )  // object \nconsole.log(\"this.optionsCode 2 \",  options ) \n// object = { data : 0, codeName : 'test' }\nconsole.log(\"this.optionsCode 2 \",  options.codeName )\n// undefined\n</code></pre>\n\n<p>I try with JSON.parse(JSON.stringify(options)  and options[property]..... nothing</p>\n\n<pre><code>console.log(\"option type \",  typeof options )\nconsole.log(\"option Object.keys(options) \",  Object.keys(options) )\nconsole.log(\"options \",  options )\nconsole.log(\" options.codeName \",  options.codeName )\nconsole.log(\"JSON.stringify(options) \",  JSON.stringify(options) )                                      console.log(\"JSON.stringify(options.codeName) \",  JSON.stringify(options.codeName) )\n</code></pre>\n\n<p>the complete result </p>\n\n<pre><code>option type  object\noption Object.keys(options)  [ 'leagueCaption', 'matchday' ]\noptions  { leagueCaption:\n   { country: 'FR',\n     code: '451',\n     codeName: 'LEAGUE_2',\n     leagueCaption: 'Ligue 2 2017/18' },\n  matchday: 32 }\n options.codeName  undefined\nJSON.stringify(options)  {\"leagueCaption\":{\"country\":\"FR\",\"code\":\"451\",\"codeName\":\"LEAGUE_2\",\"leagueCaption\":\"Ligue 2 2017/18\"},\"matchday\":32}\nJSON.stringify(options.codeName)  undefined\n</code></pre>\n"
+    },
+    {
+      "tags": [
+        "javascript",
+        "node.js",
+        "express",
+        "jasmine",
+        "jest"
+      ],
+      "owner": {
+        "reputation": 58,
+        "user_id": 5433263,
+        "user_type": "registered",
+        "accept_rate": 40,
+        "profile_image": "https://lh4.googleusercontent.com/-s1vapCSBiP4/AAAAAAAAAAI/AAAAAAAAAPs/6eLPIiOJLCM/photo.jpg?sz=128",
+        "display_name": "Indrajeet Latthe",
+        "link": "https://stackoverflow.com/users/5433263/indrajeet-latthe"
+      },
+      "is_answered": false,
+      "view_count": 11,
+      "answer_count": 0,
+      "score": 0,
+      "last_activity_date": 1525110338,
+      "creation_date": 1525110338,
+      "question_id": 50105649,
+      "link": "https://stackoverflow.com/questions/50105649/nodejs-express-mongodb-with-jest-error-while-executing-test-case",
+      "title": "NodeJs express MongoDB with jest error while executing test case",
+      "body": "<p><strong>Previous Question Link<br>\n<a href=\"https://stackoverflow.com/questions/50075889/jest-tests-are-running-beforeall\">Open Question</a></strong></p>\n\n<p><strong>Scenario</strong></p>\n\n<p>I've trying to test if my route for GET endpoint work or not which I've set correctly and I've tested by running server. But my test case gives me following error </p>\n\n<pre><code>Timeout - Async callback was not invoked within timeout specified by jasmine.DEFAULT_TIMEOUT_INTERVAL.\n</code></pre>\n\n<p>I've searched a bit and have tried all possible solutions which are stated but it still gives me same error.</p>\n\n<p><strong>Code</strong></p>\n\n<pre><code>const request = require ('supertest');\nconst app = require ('../../app');\nconst db = require ('../../db.js');\nconst url = process.env.MONGO_URI || 'mongodb://localhost:27017'\n\nbeforeAll (done =&gt; {\n  db.connect (url, err =&gt; {\n    if (err) {\n      console.log ('Unable to connect', err);\n      process.exit (1);\n    }else{\n        console.log('Succesfully connected')\n    }\n  });\n});\n\nafterAll (done =&gt; {\n  db.close ();\n});\n\n\ntest ('should response the GET method',done =&gt; {\n    const res = request (app).get ('/expense');\n    return res\n      .then (json =&gt; {\n        console.log (\"Length\",json.body.length);\n        expect (json.body.length).toBe (1, done ());\n      })\n      .catch (err =&gt; {});\n  },10000);\n</code></pre>\n\n<p><strong>Test Output</strong></p>\n\n<pre><code> ● Console\n\n    console.log test/express/startupTest.test.js:12\n      Succesfully connected\n    console.log test/express/startupTest.test.js:26\n      Length 1\n\n  ● should response the GET method\n\n    Timeout - Async callback was not invoked within timeout specified by jasmine.DEFAULT_TIMEOUT_INTERVAL.\n\n      at pTimeout (node_modules/jest-jasmine2/build/queueRunner.js:53:21)\n      at Timeout.callback [as _onTimeout] (node_modules/jsdom/lib/jsdom/browser/Window.js:523:19)\n      at ontimeout (timers.js:469:11)\n      at tryOnTimeout (timers.js:304:5)\n      at Timer.listOnTimeout (timers.js:264:5)\n\nTest Suites: 1 failed, 2 passed, 3 total\nTests:       1 failed, 6 passed, 7 total\nSnapshots:   1 passed, 1 total\nTime:        6.58s\n</code></pre>\n"
+    },
+    {
+      "tags": [
+        "node.js",
+        "reactjs",
+        "express",
+        "proxy"
+      ],
+      "owner": {
+        "reputation": 1,
+        "user_id": 9722290,
+        "user_type": "registered",
+        "profile_image": "https://www.gravatar.com/avatar/12e7d625912fbe8c2e147360a827a9d3?s=128&d=identicon&r=PG&f=1",
+        "display_name": "LionSkills",
+        "link": "https://stackoverflow.com/users/9722290/lionskills"
+      },
+      "is_answered": false,
+      "view_count": 7,
+      "answer_count": 0,
+      "score": 0,
+      "last_activity_date": 1525108497,
+      "creation_date": 1525108497,
+      "question_id": 50105208,
+      "link": "https://stackoverflow.com/questions/50105208/nodejs-react-proxy-backend-api-request",
+      "title": "NodeJs React Proxy - Backend Api Request",
+      "body": "<p>Im currently running a NodeJs with Express Framework and React as my Frontend. When I make my request on the development machine the login (passport-google) works flawless. Since i added https to the production server it does not work anymore in google chrome. Safari and IE are working. </p>\n\n<p>I believe the Request is not getting proxied to the express server.</p>\n\n<pre><code>\"proxy\": {\n\"/api/*\": {\n  \"target\": \"http://localhost:3001\",\n  \"secure\": false\n}\n</code></pre>\n\n<p>Proxy settings in react</p>\n\n<p>This is the auth route </p>\n\n<pre><code>router.get(\n  \"/auth/google\",\n  passport.authenticate(\"google\", {\n    scope: [\"profile\", \"email\"]\n  })\n);\n\nrouter.get(\n  \"/auth/google/callback\",\n  passport.authenticate(\"google\"),\n  (req, res) =&gt; {\n    res.redirect(\"/dashboard\");\n  }\n);\n</code></pre>\n\n<p>Thank you</p>\n"
+    },
+    {
+      "tags": [
+        "node.js",
+        "couchbase"
+      ],
+      "owner": {
+        "reputation": 75,
+        "user_id": 2405589,
+        "user_type": "registered",
+        "accept_rate": 50,
+        "profile_image": "https://www.gravatar.com/avatar/e4b3e1440b7e8a972e451917bb178d35?s=128&d=identicon&r=PG",
+        "display_name": "user2405589",
+        "link": "https://stackoverflow.com/users/2405589/user2405589"
+      },
+      "is_answered": false,
+      "view_count": 11,
+      "answer_count": 0,
+      "score": 1,
+      "last_activity_date": 1525104714,
+      "creation_date": 1525104714,
+      "question_id": 50104347,
+      "link": "https://stackoverflow.com/questions/50104347/nodejs-passing-objects-from-master-to-workers",
+      "title": "Nodejs passing objects from master to workers",
+      "body": "<p>How can I pass objects like Couchbase buckets or MongoDB connection objects from a Master to workers using the NodeJS cluster module? </p>\n\n<p>I have read that the cluster module serialises/deserialises the message to the workers. I am trying to not create a couchbase bucket object everytime for a worker when the worker needs to read/write to Couchbase</p>\n"
+    },
+    {
+      "tags": [
+        "node.js",
+        "mongodb"
+      ],
+      "owner": {
+        "reputation": 1,
+        "user_id": 9559342,
+        "user_type": "registered",
+        "profile_image": "https://lh6.googleusercontent.com/-Bsu20ZhxITw/AAAAAAAAAAI/AAAAAAAAAK4/HwtTCzRfsGo/photo.jpg?sz=128",
+        "display_name": "khalfallah asma",
+        "link": "https://stackoverflow.com/users/9559342/khalfallah-asma"
+      },
+      "is_answered": false,
+      "view_count": 14,
+      "answer_count": 0,
+      "score": 0,
+      "last_activity_date": 1525103756,
+      "creation_date": 1525102063,
+      "last_edit_date": 1525103756,
+      "question_id": 50103622,
+      "link": "https://stackoverflow.com/questions/50103622/convert-input-file-to-image-with-react-js-and-nodejs",
+      "title": "Convert input file to image with react js and nodejs",
+      "body": "<p>i am facing a problem that i can't find a solution since a week . I am working with node Js and i have to convert a PDF to Image so i use pdf-poppler  and here is the code . The problem is that i am storing my PDF file into MongoDB and the file here need the path of the PDF file i don't know how to put the path of my file which is stored into MongoDB :</p>\n\n<pre><code>const path = require('path');\nconst pdf = require('pdf-poppler');\n\nlet file = 'C:\\\\tmp\\\\convertme.pdf'\n\nlet opts = {\n    format: 'jpeg',\n    out_dir: path.dirname(file),\n    out_prefix: path.baseName(file, path.extname(file)),\n    page: null\n}\n\npdf.convert(file, opts)\n    .then(res =&gt; {\n        console.log('Successfully converted');\n    })\n    .catch(error =&gt; {\n        console.error(error);\n    });\n</code></pre>\n"
+    }
+  ],
+  "has_more": true,
+  "quota_max": 10000,
+  "quota_remaining": 9643
+}

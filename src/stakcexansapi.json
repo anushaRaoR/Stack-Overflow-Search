@@ -1,0 +1,114 @@
+{
+  "items": [
+    {
+      "owner": {
+        "reputation": 2995,
+        "user_id": 1509738,
+        "user_type": "registered",
+        "accept_rate": 75,
+        "profile_image": "https://i.stack.imgur.com/7P8cT.jpg?s=128&g=1",
+        "display_name": "ArunDhwaj IIITH",
+        "link": "https://stackoverflow.com/users/1509738/arundhwaj-iiith"
+      },
+      "is_accepted": false,
+      "score": 0,
+      "last_activity_date": 1524877033,
+      "last_edit_date": 1524877033,
+      "creation_date": 1524874374,
+      "answer_id": 50071650,
+      "question_id": 19718669,
+      "body": "<p>There are three solution for it on NodeJS platform</p>\n\n<p>////////////////////////////////////////////////////////////////</p>\n\n<ul>\n<li>1) Solution-1: For asynchronous use case need, use <strong>Node API:\nreadline</strong>\n////////////////////////////////////////////////////////////////</li>\n</ul>\n\n<p>Like: ( <a href=\"https://nodejs.org/api/readline.html\" rel=\"nofollow noreferrer\">https://nodejs.org/api/readline.html</a> )</p>\n\n<p>const readline = require('readline');</p>\n\n<p>const rl = readline.createInterface({\n  input: process.stdin,\n  output: process.stdout\n});</p>\n\n<p>rl.question('What do you think of Node.js? ', (answer) => {\n  // TODO: Log the answer in a database\n  console.log(<code>Thank you for your valuable feedback: ${answer}</code>);</p>\n\n<p>rl.close();\n});</p>\n\n<p>////////////////////////////////////////////////////////////////</p>\n\n<ul>\n<li>2) Solution-2: For synchronous use case need, use <strong>NPM Package:\nreadline-sync</strong>\n////////////////////////////////////////////////////////////////</li>\n</ul>\n\n<p>Like: ( <a href=\"https://www.npmjs.com/package/readline-sync\" rel=\"nofollow noreferrer\">https://www.npmjs.com/package/readline-sync</a> ) </p>\n\n<p>var readlineSync = require('readline-sync');</p>\n\n<p>// Wait for user's response.\nvar userName = readlineSync.question('May I have your name? ');\nconsole.log('Hi ' + userName + '!');</p>\n\n<p>////////////////////////////////////////////////////////////////</p>\n\n<ul>\n<li>3) Solution-3: For all general use case need, use **NPM Package:\nglobal package: process: **</li>\n</ul>\n\n<p>////////////////////////////////////////////////////////////////</p>\n\n<p>Like: ( <a href=\"https://nodejs.org/api/process.html\" rel=\"nofollow noreferrer\">https://nodejs.org/api/process.html</a> )</p>\n\n<p>For taking input as argv:</p>\n\n<p>// print process.argv\nprocess.argv.forEach((val, index) => \n{\n  console.log(<code>${index}: ${val}</code>);\n});</p>\n"
+    },
+    {
+      "owner": {
+        "reputation": 19,
+        "user_id": 7869373,
+        "user_type": "registered",
+        "profile_image": "https://i.stack.imgur.com/b1Fs1.png?s=128&g=1",
+        "display_name": "Olutobi Adeyemi",
+        "link": "https://stackoverflow.com/users/7869373/olutobi-adeyemi"
+      },
+      "is_accepted": false,
+      "score": 1,
+      "last_activity_date": 1493793688,
+      "creation_date": 1493793688,
+      "answer_id": 43752868,
+      "question_id": 19718669,
+      "body": "<p>Node has a built in API for this... </p>\n\n<pre><code>const readline = require('readline');\n\nconst rl = readline.createInterface({\n    input: process.stdin,\n    output: process.stdout\n});\n\nrl.question('Please enter a color? ', (value) =&gt; {\n    let color = value\n    console.log(`You entered ${color}`);\n    rl.close();\n});\n</code></pre>\n"
+    },
+    {
+      "owner": {
+        "reputation": 122,
+        "user_id": 1384545,
+        "user_type": "registered",
+        "accept_rate": 0,
+        "profile_image": "https://i.stack.imgur.com/1CSvU.jpg?s=128&g=1",
+        "display_name": "Harlin",
+        "link": "https://stackoverflow.com/users/1384545/harlin"
+      },
+      "is_accepted": false,
+      "score": 3,
+      "last_activity_date": 1464314970,
+      "creation_date": 1464314970,
+      "answer_id": 37473707,
+      "question_id": 19718669,
+      "body": "<p>I would suggest the readline-sync module as well if you don't require something asynchronous.</p>\n\n<pre><code># npm install readline-sync\n\nvar readline = require('readline-sync');\n\nvar name = readline.question(\"What is your name?\");\n\nconsole.log(\"Hi \" + name + \", nice to meet you.\");\n</code></pre>\n"
+    },
+    {
+      "owner": {
+        "reputation": 1267,
+        "user_id": 972197,
+        "user_type": "registered",
+        "accept_rate": 60,
+        "profile_image": "https://i.stack.imgur.com/eV1K0.jpg?s=128&g=1",
+        "display_name": "sgmonda",
+        "link": "https://stackoverflow.com/users/972197/sgmonda"
+      },
+      "is_accepted": false,
+      "score": 0,
+      "last_activity_date": 1408260774,
+      "creation_date": 1408260774,
+      "answer_id": 25347182,
+      "question_id": 19718669,
+      "body": "<p>You can use <a href=\"https://www.npmjs.org/package/stdio\" rel=\"nofollow\">stdio</a> for this. It is as simple as follows:</p>\n\n<pre><code>var stdio = require('stdio');\nstdio.question('What is your keyboard color?', function (err, color) {\n    // Do whatever you want with \"color\"\n});\n</code></pre>\n\n<p>This module includes retries if you decide to accept only some predefined answers:</p>\n\n<pre><code>var stdio = require('stdio');\nstdio.question('What is your keyboard color?', ['red', 'blue', 'orange'], function (err, color) {\n    // Do whatever you want with \"color\"\n});\n</code></pre>\n\n<p>Take a look at <a href=\"https://www.npmjs.org/package/stdio\" rel=\"nofollow\">stdio</a>, it includes other features that may be useful for you (like command-line arguments parsing, standard input reading at once or by lines...). I'm the <code>stdio</code> creator, and I've just released 0.2.0 version. :-)</p>\n\n<p><a href=\"https://nodei.co/npm/stdio/\" rel=\"nofollow\"><img src=\"https://nodei.co/npm/stdio.png\" alt=\"NPM\"></a></p>\n"
+    },
+    {
+      "owner": {
+        "reputation": 11,
+        "user_id": 2271081,
+        "user_type": "registered",
+        "profile_image": "https://www.gravatar.com/avatar/f34c1db6eeacc7df6f16a112a07e1fa7?s=128&d=identicon&r=PG",
+        "display_name": "Vinte Segundos",
+        "link": "https://stackoverflow.com/users/2271081/vinte-segundos"
+      },
+      "is_accepted": false,
+      "score": -1,
+      "last_activity_date": 1383264310,
+      "creation_date": 1383264310,
+      "answer_id": 19718740,
+      "question_id": 19718669,
+      "body": "<p>If I understood your need, that should do it:</p>\n\n<p>html:</p>\n\n<pre><code>&lt;input id=\"userInput\" onChange=\"setValue()\" onBlur=\"setValue()\"&gt;\n</code></pre>\n\n<p>javascript:</p>\n\n<pre><code>function setValue(){\n   color=document.getElementById(\"userInput\").value;\n   //do something with color\n}\n</code></pre>\n\n<p>if you don't need to do something everytime the input changes, you can just get the input whenever you want to do something with 'color':</p>\n\n<p>html:</p>\n\n<pre><code>&lt;input id=\"userInput\"&gt;\n</code></pre>\n\n<p>javascript:</p>\n\n<pre><code>color=document.getElementById(\"userInput\").value;\n</code></pre>\n"
+    },
+    {
+      "owner": {
+        "reputation": 8039,
+        "user_id": 1930219,
+        "user_type": "registered",
+        "accept_rate": 65,
+        "profile_image": "https://www.gravatar.com/avatar/5ae618e4950c81bf0d83d17c2c2ddaab?s=128&d=identicon&r=PG",
+        "display_name": "Alex Netkachov",
+        "link": "https://stackoverflow.com/users/1930219/alex-netkachov"
+      },
+      "is_accepted": false,
+      "score": 1,
+      "last_activity_date": 1383264217,
+      "creation_date": 1383264217,
+      "answer_id": 19718727,
+      "question_id": 19718669,
+      "body": "<p>You can use the module 'readline' for this: <a href=\"http://nodejs.org/api/readline.html\" rel=\"nofollow\">http://nodejs.org/api/readline.html</a> - the first example in the manual demonstrates how to do what you asked for.</p>\n"
+    }
+  ],
+  "has_more": false,
+  "quota_max": 10000,
+  "quota_remaining": 9649
+}

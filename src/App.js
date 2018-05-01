@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {BrowserRouter,Switch,Route,Redirect} from 'react-router-dom';
+import {BrowserRouter,Switch,Route} from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
 import Search from './search';

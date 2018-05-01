@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
@@ -2442,3 +2443,14 @@ In the future, we might start automatically compiling incompatible third-party m
 ## Something Missing?
 
 If you have ideas for more “How To” recipes that should be on this page, [let us know](https://github.com/facebookincubator/create-react-app/issues) or [contribute some!](https://github.com/facebookincubator/create-react-app/edit/master/packages/react-scripts/template/README.md)
+=======
+A Single Page Application using React JS
+
+--The app has a textbox to search stack overflow.
+
+ Simple search API is used from 'https://api.stackexchange.com'
+ 
+--Search results are listed on the same page and display Score, Answer, Number of Views, Tags, Asked or Answered time for each question.The accepted answers ae highlighted.
+
+-- Each question is be a link and clicking on the link retrieves the answers using answers API from ' https://api.stackexchange.com' and display the answers
+>>>>>>> 0cf182b634daf26845e3bd3b6b2d083ef3b47750
